@@ -103,7 +103,7 @@
 
 ;;; Code:
 
-(require 'cl)
+(require 'cl-lib)
 (require 'imenu)
 (require 'ido)
 (require 'hi-lock)
@@ -1522,7 +1522,7 @@ ex) make -C project/root/directory"
 
 ;;;; android-doc
 
-(defun* jda-android-doc-source-candidates (&key class-name sdk-dir)
+(cl-defun jda-android-doc-source-candidates (&key class-name sdk-dir)
   (split-string
    (shell-command-to-string
     (format "find %s/docs/reference -name '*%s*'"
